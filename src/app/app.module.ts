@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Routing, routingComponents } from './routing';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -17,7 +18,7 @@ import { LoansComponent } from './loans/loans.component';
     LoansComponent
   ],
   imports: [
-    BrowserModule, Routing
+    BrowserModule, Routing, FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

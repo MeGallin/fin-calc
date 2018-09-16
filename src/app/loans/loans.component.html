@@ -1,3 +1,19 @@
-<p>
-  loans works!
-</p>
+<section id="loans">
+
+    <label for="pv">Principal Value</label>
+    <input type="number" #pv>
+    <label for="n">Term[years]</label>
+    <input type="number" name="term" #term>
+    <label for="i">Interest Rate [annual]</label>
+    <input type="number" #interest>
+    <button (click)="calculate(pv, term, interest)">Calculate</button>
+
+  <div *ngIf="fv">
+    <h6>Summary</h6>
+    <p>Your funds will be worth {{fv | currency:'':''}} in {{n}} year time </p>
+    <p>PMT {{pmt | currency:'':''}}</p>
+  </div>
+
+
+
+</section>

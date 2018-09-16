@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ClockService } from '../services/clock.service';
 
 @Component({
   selector: 'app-footer',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-
-  constructor() { }
+public title = 'FinCalc';
+public clock;
+  constructor(private _clock: ClockService) { }
 
   ngOnInit() {
+   this.clock = this._clock.clock();
   }
 
 }
