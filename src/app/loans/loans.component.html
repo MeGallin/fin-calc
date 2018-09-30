@@ -1,19 +1,34 @@
 <section id="loans">
+  <div class="container border-temp"
+  fxLayout
+  fxLayout.xs="column"
+  fxLayoutAlign="center"
+  fxLayoutGap="10px"
+  fxLayoutGap.xs="0">
 
-    <label for="pv">Principal Value</label>
-    <input type="number" #pv>
-    <label for="n">Term[years]</label>
-    <input type="number" name="term" #term>
-    <label for="i">Interest Rate [annual]</label>
-    <input type="number" #interest>
-    <button (click)="calculate(pv, term, interest)">Calculate</button>
+    <mat-form-field fxFlex>
+      <input matInput type="number" #pv placeholder="Amount">
+    </mat-form-field>
 
-  <div *ngIf="fv">
+    <mat-form-field fxFlex>
+      <input matInput type="number" #term placeholder="Period (Years)">
+    </mat-form-field>
+
+    <mat-form-field fxFlex>
+      <input matInput type="number" #interest placeholder="Interest Rate (%)">
+    </mat-form-field>
+
+    <div fxFlex>
+      <button mat-flat-button color="primary" (click)="calculate(pv, term, interest)">Calculate</button>
+    </div>
+  </div>
+
+
+  <div  *ngIf="fv">
     <h6>Summary</h6>
     <p>Your funds will be worth {{fv | currency:'':''}} in {{n}} year time </p>
     <p>PMT {{pmt | currency:'':''}}</p>
   </div>
-
 
 
 </section>
