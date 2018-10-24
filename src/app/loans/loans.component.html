@@ -1,34 +1,47 @@
 <section id="loans">
-  <div class="container border-temp"
-  fxLayout
-  fxLayout.xs="column"
-  fxLayoutAlign="center"
-  fxLayoutGap="10px"
-  fxLayoutGap.xs="0">
+    <div fxLayout fxLayout.xs="column" fxLayoutAlign="center center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+        
+        <mat-form-field fxFlex class="">
+           <input matInput type="number" placeholder="Home Value" #hv>
+        </mat-form-field>
+        <mat-form-field fxFlex class="">
+            <input matInput type="number" placeholder="Period (Years)" #period>
+          </mat-form-field>
+        <mat-form-field fxFlex class="">
+            <input matInput type="number" placeholder="Annual Appreciation" #appreciation>
+         </mat-form-field>        
+        </div> 
+            {{futureHomeValue | currency:'':''}}
+            <button mat-flat-button color="primary" (click)="futureHomeValueCalculate(hv, appreciation, period)">Calculate Future Home Value</button>
+          
+        
+    
+  <p></p>
+  <div fxLayout fxLayout.xs="column" fxLayoutAlign="center center" fxLayoutGap="10px" fxLayoutGap.xs="0">
 
-    <mat-form-field fxFlex>
-      <input matInput type="number" #pv placeholder="Amount">
+    <mat-form-field fxFlex class=" border-temp">
+      <input matInput type="number" #pv placeholder="Amount to borrow">
     </mat-form-field>
 
-    <mat-form-field fxFlex>
+    <mat-form-field fxFlex class=" border-temp">
       <input matInput type="number" #term placeholder="Period (Years)">
     </mat-form-field>
 
-    <mat-form-field fxFlex>
+    <mat-form-field fxFlex class=" border-temp">
       <input matInput type="number" #interest placeholder="Interest Rate (%)">
     </mat-form-field>
 
-    <div fxFlex>
+    <div fxFlex class=" border-temp">
       <button mat-flat-button color="primary" (click)="calculate(pv, term, interest)">Calculate</button>
     </div>
   </div>
 
 
-  <div  *ngIf="fv">
+  <div *ngIf="fv">
     <h6>Summary</h6>
     <p>Your funds will be worth {{fv | currency:'':''}} in {{n}} year time </p>
     <p>PMT {{pmt | currency:'':''}}</p>
+    <h3>Future value of house will be {{futureHomeValue | currency:'':''}}</h3>
   </div>
-
 
 </section>
